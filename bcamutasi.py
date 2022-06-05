@@ -19,7 +19,7 @@ PATH_MUTASI_DONWLOAD = '/accountstmt.do?value(actions)=acctstmtview'
 
 BCAUSER = environ.get('BCAUSER','USER123456')
 BCAPIN = environ.get('BCAPIN','123456')
-WEBWOOK = environ.get('WEBWOOK',None)
+WEBHOOK = environ.get('WEBWOOK',None)
 
 MY_IP = get('https://api.ipify.org/').text
 
@@ -103,10 +103,10 @@ class BCAMutasi:
             self._login = False
 
     def call_webhook(self,data):
-        if WEBWOOK == None:
+        if WEBHOOK == None:
             print(data)
             return
-        self._session.post(WEBWOOK,json=data)
+        self._session.post(WEBHOOK,json=data)
 
 def main():
     coba = BCAMutasi()
